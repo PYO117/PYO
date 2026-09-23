@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>MyBMITool</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BioFit - BMI Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+    <div class="glow glow3"></div>
+
+    <div class="grid"></div>
+
+
+    <main class="app">
+
+        <!-- Header -->
+        <header>
+
+            <div class="logo">
+                <span>♥</span>
+            </div>
+
+            <div>
+                <h1>Bio<span>Fit</span></h1>
+                <p>BMI HEALTH CHECK</p>
+            </div>
+
+        </header>
+
+
+        <!-- Calculator -->
+        <section class="calculator">
+
+            <div class="section-title">
+                <span>01</span>
+                <div>
+                    <h2>ข้อมูลร่างกาย</h2>
+                    <p>กรอกข้อมูลของคุณ</p>
+                </div>
+            </div>
+
+
+            <div class="inputs">
+
+                <div class="field">
+
+                    <label>น้ำหนัก</label>
+
+                    <div class="input">
+                        <input
+                            id="weight"
+                            type="number"
+                            placeholder="60"
+                        >
+
+                        <span>KG</span>
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>ส่วนสูง</label>
+
+                    <div class="input">
+
+                        <input
+                            id="height"
+                            type="number"
+                            placeholder="170"
+                        >
+
+                        <span>CM</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="calculate" onclick="calculateBMI()">
+
+                <span>คำนวณ BMI</span>
+
+                <strong>→</strong>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- Result -->
+        <section class="result">
+
+            <div class="section-title">
+
+                <span>02</span>
+
+                <div>
+                    <h2>ผลการประเมิน</h2>
+                    <p>ผลลัพธ์ของคุณ</p>
+                </div>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <!-- BMI Circle -->
+
+                <div class="bmi-circle">
+
+                    <div class="circle-inner">
+
+                        <small>BMI</small>
+
+                        <strong id="bmi">--</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="result-info">
+
+                    <div
+                        id="status"
+                        class="status"
+                    >
+                        รอการคำนวณ
+                    </div>
+
+
+                    <div class="stats">
+
+                        <div>
+                            <small>น้ำหนัก</small>
+                            <strong id="showWeight">--</strong>
+                            <span>kg</span>
+                        </div>
+
+                        <div>
+                            <small>ส่วนสูง</small>
+                            <strong id="showHeight">--</strong>
+                            <span>cm</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BMI Scale -->
+
+            <div class="scale">
+
+                <div class="scale-title">
+
+                    <span>ระดับ BMI</span>
+
+                    <span>ค่าประมาณ</span>
+
+                </div>
+
+
+                <div class="scale-bar">
+
+                    <div class="low"></div>
+                    <div class="normal"></div>
+                    <div class="over"></div>
+                    <div class="obese"></div>
+
+                    <div
+                        id="marker"
+                        class="marker"
+                    ></div>
+
+                </div>
+
+
+                <div class="scale-labels">
+
+                    <span>น้อย</span>
+                    <span>ปกติ</span>
+                    <span>เกิน</span>
+                    <span>อ้วน</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Advice -->
+
+            <div class="advice">
+
+                <div class="advice-header">
+
+                    <span>💡</span>
+
+                    <div>
+                        <h3>คำแนะนำสำหรับคุณ</h3>
+                        <p>แนวทางดูแลสุขภาพเบื้องต้น</p>
+                    </div>
+
+                </div>
+
+
+                <p id="advice">
+                    กรอกข้อมูลเพื่อรับคำแนะนำ
+                </p>
+
+            </div>
+
+
+            <button
+                class="reset"
+                onclick="resetBMI()"
+            >
+                ↻ เริ่มใหม่
+            </button>
+
+        </section>
+
+
+
+        <!-- About -->
+
+        <section class="about">
+
+            <div class="section-title">
+
+                <span>03</span>
+
+                <div>
+                    <h2>BMI คืออะไร?</h2>
+                    <p>ทำความรู้จักกับดัชนีมวลกาย</p>
+                </div>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="info-box">
+
+                    <span>01</span>
+
+                    <h3>คำนวณจากอะไร?</h3>
+
+                    <p>
+                        BMI คำนวณจากน้ำหนักตัว
+                        หารด้วยส่วนสูงยกกำลังสอง
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>02</span>
+
+                    <h3>ใช้เพื่ออะไร?</h3>
+
+                    <p>
+                        ใช้เป็นข้อมูลเบื้องต้น
+                        สำหรับประเมินน้ำหนักเมื่อเทียบกับส่วนสูง
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>03</span>
+
+                    <h3>ข้อควรรู้</h3>
+
+                    <p>
+                        BMI ไม่สามารถบอกสุขภาพทั้งหมด
+                        และควรพิจารณาปัจจัยอื่นร่วมด้วย
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                BioFit • BMI Health Calculator
+            </p>
+
+            <small>
+                เครื่องมือนี้ใช้สำหรับการประเมินเบื้องต้นเท่านั้น
+            </small>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
